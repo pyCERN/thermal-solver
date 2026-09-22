@@ -10,6 +10,7 @@ public:
         : _grid(grid), _max_error(max_error), _max_iter(max_iter)
     {}
     void solve();
+    void solve_mt();
 private:
     Grid2D& _grid;
     double _max_error;
