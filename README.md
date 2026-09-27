@@ -39,3 +39,20 @@ T_{i, j} = \frac{1}{4} \left( T_{i+1, j} + T_{i-1, j} + T_{i, j+1} + T_{i, j-1} 
 $$
 
 So the temperature at one position is the average of its four neighboring points plus a source term contribution.
+
+## Experiment
+### Run environment
+The experiment was conducted by changing the grid size and algorithm to reach convergence.
+
+I used M1 Mac with 4 cores and 8GB memory. To enable multi-threading, I set *export OMP_NUM_THREADS=4*.
+
+| Grid Size | Algorithm | Iterations | Execution Time (s) | Speedup |
+| :---: | :--- | :---: | :---: | :---: |
+| **$100 \times 100$** | Gauss-Seidel | 4,239 | 0.487 | |
+| | Jacobi | 7,795 | 0.171 | |
+| | SOR | 1,703 | 0.228 | |
+| | Jacobi (Multi-thread) | 7,795 | 0.837 | 0.2x |
+| **$500 \times 500$** | Gauss-Seidel | 44,070 | 130.0 |
+| | Jacobi | 68,513 | 42.1 | |
+| | SOR | 22,391 | 77.2 | |
+| | Jacobi (Multi-thread) | 68,513 | 31.3 | 1.34x |

@@ -9,7 +9,9 @@ public:
     ThermalSolver(Grid2D& grid, double max_error = 1e-5, int max_iter = 10000)
         : _grid(grid), _max_error(max_error), _max_iter(max_iter)
     {}
-    void solve();
+    void solve_gauss_seidel();
+    void solve_jacobi();
+    void solve_sor();
     void solve_mt();
 private:
     Grid2D& _grid;

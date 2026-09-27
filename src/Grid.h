@@ -17,22 +17,18 @@ public:
     Grid2D(int nx, int ny, double dx, double dy)
         : _nx(nx), _ny(ny),
           _dx(dx), _dy(dy),
-          _grid(std::vector<std::vector<Node>>(ny))
-    {
-        for (int i = 0; i < ny; i++) {
-            _grid[i].assign(nx, Node());
-        }
-    }
+          _grid(std::vector<Node>(ny * nx))
+    {}
 
     int nx() const { return _nx; }
     int ny() const { return _ny; }
     double dx() const { return _dx; }
     double dy() const { return _dy; }
-    std::vector<std::vector<Node>>& grid() { return _grid; }
+    std::vector<Node>& grid() { return _grid; }
 private:
     int _nx, _ny;
     double _dx, _dy;
-    std::vector<std::vector<Node>> _grid;
+    std::vector<Node> _grid;
 };
 
 #endif
